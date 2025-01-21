@@ -1,1 +1,3 @@
 python-dotenv
+kafka-python
+thread6
