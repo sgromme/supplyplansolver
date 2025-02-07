@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import kafka
 from kafka import KafkaConsumer, KafkaProducer
 import threading
