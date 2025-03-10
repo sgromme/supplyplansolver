@@ -1,6 +1,7 @@
 networks:
-  app-tier:
+  kafka_network:
     driver: bridge
+    external: false
 
 services:
   kafka:
@@ -8,7 +9,7 @@ services:
     hostname: kafka 
     container_name: kafka
     networks:
-      - app-tier
+      - kafka_network
     ports:
       - '9092:9092'
       - '9094:9094'
@@ -27,7 +28,7 @@ services:
     depends_on:
       - kafka
     networks:
-      - app-tier
+      - kafka_network
     entrypoint: ["./kafka-populate.sh"]
     env_file:
        - ./env.kafka-populate
@@ -45,7 +46,7 @@ services:
       kafka-init:
         condition: service_completed_successfully
     networks:
-      - app-tier
+      - kafka_network
   consumer:
     image: 'consumer:latest'
     hostname: consumer
@@ -57,5 +58,8 @@ services:
       kafka-init:
         condition: service_completed_successfully
     networks:
-      - app-tier
+      - kafka_network
+  
+    
+    
     
