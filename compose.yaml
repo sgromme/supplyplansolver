@@ -34,10 +34,10 @@ services:
     volumes:
        - ./kafka-populate.txt:/kafka-populate.txt
        - ./kafka-populate.sh:/kafka-populate.sh
-  myapp:
+  producer:
     image: 'producer:latest'
-    hostname: myapp
-    container_name: myapp
+    hostname: producer
+    container_name: producer
     environment:
       - buildtag=1
       - TEST=YES_I_CAN_GET_A_VARIABLE_FROM_COMPOSE_PRODUCER
@@ -46,10 +46,10 @@ services:
         condition: service_completed_successfully
     networks:
       - app-tier
-  myapp2:
+  consumer:
     image: 'consumer:latest'
-    hostname: myapp2
-    container_name: myapp2
+    hostname: consumer
+    container_name: consumer
     environment:
       - buildtag=1
       - TEST=YES_I_CAN_GET_A_VARIABLE_FROM_COMPOSE_CONSUMER
