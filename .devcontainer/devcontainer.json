@@ -1,0 +1,25 @@
+{
+    "name": "Supply Plan Solver",
+    "dockerComposeFile": [
+        "compose.yml"
+    ],
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "rogalmic.bash-debug",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "ecmel.vscode-html-css",
+        "timonwong.shellcheck",
+        "redhat.vscode-yaml",
+        "rogalmic.bash-debug"
+    ],
+    "service": "supplyplansolver",
+    "forwardPorts": [9092, 9094]
+ 
+}
