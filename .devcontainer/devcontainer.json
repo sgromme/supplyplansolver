@@ -1,25 +1,9 @@
 {
-    "name": "Supply Plan Solver",
-    "dockerComposeFile": [
-        "compose.yml"
-    ],
-    "settings": {
-        "mcr.microsoft.com/devcontainers/universal:linux": "bash"
-    },
-    "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg",
-        "rogalmic.bash-debug",
-        "ms-azuretools.vscode-docker",
-        "dbaeumer.vscode-eslint",
-        "ecmel.vscode-html-css",
-        "timonwong.shellcheck",
-        "redhat.vscode-yaml",
-        "rogalmic.bash-debug"
-    ],
-    "service": "supplyplansolver",
-    "forwardPorts": [9092, 9094]
- 
-}
+    "image": "mcr.microsoft.com/devcontainers/universal:linux",
+  
+    "customizations": {
+      "vscode": {
+        "extensions": ["streetsidesoftware.code-spell-checker"]
+      }
+    }
+  }
