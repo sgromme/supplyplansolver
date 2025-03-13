@@ -4,7 +4,7 @@
         "compose.yml"
     ],
     "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
+        "mcr.microsoft.com/devcontainers/universal:linux": "bash"
     },
     "extensions": [
         "ms-python.python",
