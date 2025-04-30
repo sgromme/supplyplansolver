@@ -36,7 +36,7 @@ services:
        - ./kafka-populate.txt:/kafka-populate.txt
        - ./kafka-populate.sh:/kafka-populate.sh
   producer:
-    image: 'willscott1377/producer:latest'
+    image: 'producer:latest'
     hostname: producer
     container_name: producer
     environment:
@@ -48,7 +48,7 @@ services:
     networks:
       - kafka_network
   consumer:
-    image: 'willscott1377/consumer:latest'
+    image: 'consumer:latest'
     hostname: consumer
     container_name: consumer
     environment:
