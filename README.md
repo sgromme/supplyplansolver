@@ -5,13 +5,13 @@ Apache Kafka will be used for messaging between containers.
 Each container will model a node in the supply chain or a node in a graph.
 
 
-Prerequisite:
+# Prerequisite:
 Docker Desktop installed
 Visual Studio Code installed
 python environment setup if you will be developing.
 
 
-Steps to run:
+# Steps to run:
 
 * In the directory docker/consumer run the command "docker build -t consumer ."
 * In the directory docker/producer run the command "docker build -t producer ."
@@ -20,7 +20,8 @@ Steps to run:
 * To stop and delete the containers run the command "docker compose down"
 
 
-Add Instructions to run from Docker Storage (SP)
+# Instructions to run from Docker Hub Repository:
+
 * build with a tag or version and use your Docker Hub Username (yourdockerhubusername)
 docker build -t yourdockerhubusername/consumer:1.1.1 .
 docker build -t yourdockerhubusername/producer:1.1.1 .
