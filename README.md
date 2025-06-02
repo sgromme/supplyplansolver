@@ -20,3 +20,25 @@ Steps to run:
 * To stop and delete the containers run the command "docker compose down"
 
 
+Add Instructions to run from Docker Storage (SP)
+* build with a tag or version and use your Docker Hub Username (yourdockerhubusername)
+docker build -t yourdockerhubusername/consumer:1.1.1 .
+docker build -t yourdockerhubusername/producer:1.1.1 .
+
+* Push images to your Docker Hub
+docker push yourdockerhubusername/consumer:1.1.1
+docker push yourdockerhubusername/producer:1.1.1
+
+* update compose.yaml to reference the new docker name and tag
+consumer:
+    image: 'yourdockerhubusername/consumer:1.1.1'
+ producer:
+    image: 'yourdockerhubusername/producer:1.1.1'
+
+* run the docker compose
+
+
+
+
+
+
