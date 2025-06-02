@@ -13,8 +13,8 @@ python environment setup if you will be developing.
 
 # Steps to run:
 
-* In the directory docker/consumer run the command "docker build -t consumer ."
-* In the directory docker/producer run the command "docker build -t producer ."
+* In the directory source/consumer run the command "docker build -t consumer ."
+* In the directory source/producer run the command "docker build -t producer ."
 * In the directory supplyplansolver run the command "docker compose up -d"
 * Observe the container in Docker Desktop
 * To stop and delete the containers run the command "docker compose down"
