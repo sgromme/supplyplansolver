@@ -528,7 +528,11 @@ class SupplyPlanningDataGenerator:
             dataset: Dictionary of DataFrames to export
             filename: Excel filename
         """
-        with pd.ExcelWriter(filename) as writer:
+        # Get the directory of the current script
+        # and write to the same directory
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, filename)
+        with pd.ExcelWriter(file_path) as writer:
             for sheet_name, df in dataset.items():
                 df.to_excel(writer, sheet_name=sheet_name, index=False)
 
