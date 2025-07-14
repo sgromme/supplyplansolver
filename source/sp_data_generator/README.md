@@ -14,3 +14,9 @@ num_components = np.random.randint(2, max_components + 1)
 pip install -r requirements-dev.txt
 # Start Jupyter without a password (Use only on a secure, local machine, as it disables security)
 jupyter notebook --NotebookApp.token='' --NotebookApp.password=''
+
+# Create the OpenAPI key
+# Go to [openapi ](https://platform.openai.com/settings/organization/api-keys)
+# and generate a key. Copy key and create the environment variable below
+export OPENAI_API_KEY="sk-proj-............"
+

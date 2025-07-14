@@ -11,6 +11,7 @@ import os
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
+print("OpenAI API Key loaded:", openai_api_key is not None)
 
 class SupplyPlanningDataGenerator:
     """Generate realistic supply planning data for testing optimization models."""
@@ -422,6 +423,7 @@ class SupplyPlanningDataGenerator:
         """
         if not self.openai_api_key:
             # Fallback to basic naming if no API key
+            print("No API key provided, using fallback naming.")    
             names = []
             for category, count in categories.items():
                 for i in range(count):
