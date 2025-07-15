@@ -18,5 +18,7 @@ jupyter notebook --NotebookApp.token='' --NotebookApp.password=''
 # Create the OpenAPI key
 # Go to [openapi ](https://platform.openai.com/settings/organization/api-keys)
 # and generate a key. Copy key and create the environment variable below
-export OPENAI_API_KEY="sk-proj-............"
+
+export OPENAI_API_KEY="sk-proj-"
+
 
