@@ -1,3 +1,10 @@
 python-dotenv
 kafka-python
 thread6
+pandas
+numpy
+matplotlib
+openai
+python-dotenv
+openpyxl
+jupyter

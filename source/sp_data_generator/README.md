@@ -20,5 +20,29 @@ jupyter notebook --NotebookApp.token='' --NotebookApp.password=''
 # and generate a key. Copy key and create the environment variable below
 
 export OPENAI_API_KEY="sk-proj-"
+echo $OPENAI_API_KEY
+
+
+# configure .env file which can be used instead of exporting th variable above
+
+# Set the Python path, this is need to access any of the other directories in ./source
+export PYTHONPATH=$PWD/source
+
+# Generating data with the supply_planning_data_generator.py
+
+# run the supply_planning_data_generator.py from the command line
+python supply_data_generator.py
+
+# import supply_planning_generator and export the data to directory
+from  sp_data_generator.supply_planning_data_generator import SupplyPlanningDataGenerator as Sp
+
+import os
+
+generator = Sp(seed=42)
+dataset = generator.generate_full_dataset()
+generator.export_to_excel(dataset, filename='supply_planning_data.xlsx', working_directory=os.getcwd())
+
+
+
 
 

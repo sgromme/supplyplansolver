@@ -520,18 +520,24 @@ class SupplyPlanningDataGenerator:
             'workforce': workforce_df
         }
     
-    def export_to_excel(self, dataset: Dict[str, pd.DataFrame], filename: str = 'supply_planning_data.xlsx'):
+    def export_to_excel(self, dataset: Dict[str, pd.DataFrame], filename: str = 'supply_planning_data.xlsx', working_directory:str = None):
         """
         Export the generated dataset to Excel.
         
         Args:
             dataset: Dictionary of DataFrames to export
             filename: Excel filename
+            working_directory: Directory to save the file, if None uses the current script directory
         """
-        # Get the directory of the current script
+        # Get the directory of the current script or use the inputed 
+        # working directory
         # and write to the same directory
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        file_path = os.path.join(script_dir, filename)
+        if not working_directory:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            file_path = os.path.join(script_dir, filename)
+        else:
+            file_path = os.path.join(working_directory, filename)
+        
         with pd.ExcelWriter(file_path) as writer:
             for sheet_name, df in dataset.items():
                 df.to_excel(writer, sheet_name=sheet_name, index=False)
