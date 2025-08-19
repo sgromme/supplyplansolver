@@ -547,9 +547,9 @@ class SupplyPlanningDataGenerator:
         # Create parquet subfolder
         # ,base_dir: str, excel_file: str
         if working_directory is None:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
+            working_directory = os.path.dirname(os.path.abspath(__file__))
     
-        parquet_dir = os.path.join(script_dir, "parquet_data")
+        parquet_dir = os.path.join(working_directory, "parquet_data")
         os.makedirs(parquet_dir, exist_ok=True)
 
         # Convert each sheet to a separate parquet file
