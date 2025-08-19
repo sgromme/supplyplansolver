@@ -542,11 +542,31 @@ class SupplyPlanningDataGenerator:
             for sheet_name, df in dataset.items():
                 df.to_excel(writer, sheet_name=sheet_name, index=False)
 
+
+    def export_to_parquet(self ,dataset: Dict[str, pd.DataFrame], working_directory:str = None  ):
+        # Create parquet subfolder
+        # ,base_dir: str, excel_file: str
+        if working_directory is None:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+        parquet_dir = os.path.join(script_dir, "parquet_data")
+        os.makedirs(parquet_dir, exist_ok=True)
+
+        # Convert each sheet to a separate parquet file
+        for sheet_name, df in dataset.items():
+            # Clean sheet name for filename (avoid spaces/slashes etc.)
+            safe_name = sheet_name.replace(" ", "_").replace("/", "-")
+            file_path = os.path.join(parquet_dir, f"{safe_name}.parquet")
+
+            df.to_parquet(file_path, engine="pyarrow", index=False)
+            print(f"Saved: {file_path}")
+        
+
 # Example usage
 if __name__ == "__main__":
     generator = SupplyPlanningDataGenerator(seed=42)
     dataset = generator.generate_full_dataset()
     generator.export_to_excel(dataset)
-    
+    #generator.export_to_parquet(dataset)    
     # Visualize some data
     generator.visualize_demand_patterns(dataset['demand'])

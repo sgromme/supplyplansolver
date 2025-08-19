@@ -4,3 +4,4 @@ matplotlib
 openai
 python-dotenv
 openpyxl
+pyarrow
