@@ -1,7 +1,12 @@
 # Setup
 
 # to run Juypter without passwords/token
+# use this instead of starting without token/password, there are errors 
+jupyter notebook
 jupyter notebook --NotebookApp.token='' --NotebookApp.password=''
+
+# Instead of running the juypter notebook , the Microsoft Jupyter extension can be installed, which is
+# Juypter Notebook support by Microsoft, make sure to select the Python virtual environment
 
 
 # INFO
